@@ -43,11 +43,13 @@ public class Rectangle extends Figure{
 
     @Override
     public double perimeter() {
+        //TODO handle Infinity
         return 2*(width+length);
     }
 
     @Override
     public double area() {
+        //TODO handle Infinity
         return width*length;
     }
 }
