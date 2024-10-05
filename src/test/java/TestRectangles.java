@@ -175,8 +175,8 @@ public class TestRectangles {
                 rectangleList.add(new Rectangle(1, 15));
                 rectangleArray[1] = new Rectangle(1, 15);
 
-                rectangleList.add(new Rectangle(2, 15));
-                rectangleArray[2] = new Rectangle(2, 15);
+                rectangleList.add(new Rectangle(Double.POSITIVE_INFINITY, 15));
+                rectangleArray[2] = new Rectangle(Double.POSITIVE_INFINITY, 15);
 
                 rectangleList.add(new Rectangle(100, 15));
                 rectangleArray[3] = new Rectangle(100, 15);
@@ -188,17 +188,17 @@ public class TestRectangles {
                 rectangleListExpected.add(new Rectangle(1, 15));
                 rectangleArrayExpected[0] = new Rectangle(1, 15);
 
-                rectangleListExpected.add(new Rectangle(2, 15));
-                rectangleArrayExpected[1] = new Rectangle(2, 15);
+                rectangleListExpected.add(new Rectangle(10, 15));
+                rectangleArrayExpected[1] = new Rectangle(10, 15);
 
                 rectangleListExpected.add(new Rectangle(10, 15));
                 rectangleArrayExpected[2] = new Rectangle(10, 15);
 
-                rectangleListExpected.add(new Rectangle(10, 15));
-                rectangleArrayExpected[3] = new Rectangle(10, 15);
-
                 rectangleListExpected.add(new Rectangle(100, 15));
-                rectangleArrayExpected[4] = new Rectangle(100, 15);
+                rectangleArrayExpected[3] = new Rectangle(100, 15);
+
+                rectangleListExpected.add(new Rectangle(Double.POSITIVE_INFINITY, 15));
+                rectangleArrayExpected[4] = new Rectangle(Double.POSITIVE_INFINITY, 15);
             }
             catch (Exception _) {}
             Assertions.assertDoesNotThrow(() -> Rectangles.sortByArea(rectangleList));

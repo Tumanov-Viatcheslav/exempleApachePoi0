@@ -63,14 +63,12 @@ public class TestRectangle {
 
     @Test
     public void testPerimeter2(){
-        Rectangle r1, r2;
+        Rectangle r = null;
         try {
-            r1 = new Rectangle(Double.MAX_VALUE, 15);
-            r2 = new Rectangle(Double.MAX_VALUE, 20);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-        Assertions.assertTrue(r1.perimeter() < r2.perimeter());
+            r = new Rectangle(Double.MAX_VALUE, 15);
+        } catch (Exception _) {}
+        Exception exception = Assertions.assertThrows(Exception.class, r::perimeter);
+        Assertions.assertEquals("Stepping in the area of infinity errors encounter you", exception.getMessage());
     }
 
     @Test
@@ -90,14 +88,12 @@ public class TestRectangle {
 
     @Test
     public void testArea2(){
-        Rectangle r1, r2;
+        Rectangle r = null;
         try {
-            r1 = new Rectangle(Double.MAX_VALUE, 15);
-            r2 = new Rectangle(Double.MAX_VALUE, 20);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-        Assertions.assertTrue(r1.area() < r2.area());
+            r = new Rectangle(Double.MAX_VALUE, 15);
+        } catch (Exception _) {}
+        Exception exception = Assertions.assertThrows(Exception.class, r::area);
+        Assertions.assertEquals("Stepping in the area of infinity errors encounter you", exception.getMessage());
     }
 
     @Test

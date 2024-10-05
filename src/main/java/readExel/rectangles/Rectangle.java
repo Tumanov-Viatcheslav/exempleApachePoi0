@@ -42,14 +42,16 @@ public class Rectangle extends Figure{
     }
 
     @Override
-    public double perimeter() {
-        //TODO handle Infinity
+    public double perimeter() throws Exception {
+        if (2*(width+length) == Double.POSITIVE_INFINITY)
+            throw new Exception("Stepping in the area of infinity errors encounter you");
         return 2*(width+length);
     }
 
     @Override
-    public double area() {
-        //TODO handle Infinity
+    public double area() throws Exception {
+        if (width*length == Double.POSITIVE_INFINITY)
+            throw new Exception("Stepping in the area of infinity errors encounter you");
         return width*length;
     }
 }

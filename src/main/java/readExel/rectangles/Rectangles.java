@@ -57,7 +57,12 @@ public class Rectangles {
             throw  new Exception("Expected collection but null encountered");
         if (rectangles.isEmpty())
             return;
-        rectangles.sort(Comparator.comparingDouble(Rectangle::area));
+        rectangles.sort((r1, r2) -> {
+            try { r2.area(); } catch (Exception _) { return -1; }
+            try { r1.area(); } catch (Exception _) { return 1; }
+            try { return Double.compare(r1.area(), r2.area()); } catch (Exception _) {}
+            return 0;
+        });
     }
 
     public static void sortByArea(Rectangle[] rectangles) throws Exception {
@@ -65,6 +70,11 @@ public class Rectangles {
             throw  new Exception("Expected array but null encountered");
         if (rectangles.length == 0)
             return;
-        Arrays.sort(rectangles, Comparator.comparingDouble(Rectangle::area));
+        Arrays.sort(rectangles, (r1, r2) -> {
+            try { r2.area(); } catch (Exception _) { return -1; }
+            try { r1.area(); } catch (Exception _) { return 1; }
+            try { return Double.compare(r1.area(), r2.area()); } catch (Exception _) {}
+            return 0;
+        });
     }
 }
