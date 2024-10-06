@@ -58,8 +58,8 @@ public class Rectangles {
         if (rectangles.isEmpty())
             return;
         rectangles.sort((r1, r2) -> {
-            try { r2.area(); } catch (Exception _) { return -1; }
-            try { r1.area(); } catch (Exception _) { return 1; }
+            try { r2.area(); } catch (Exception e) { if (e.getMessage().equals("Stepping in the area of infinity errors encounter you")) return -1; }
+            try { r1.area(); } catch (Exception e) { if (e.getMessage().equals("Stepping in the area of infinity errors encounter you")) return 1; }
             try { return Double.compare(r1.area(), r2.area()); } catch (Exception _) {}
             return 0;
         });
@@ -71,8 +71,8 @@ public class Rectangles {
         if (rectangles.length == 0)
             return;
         Arrays.sort(rectangles, (r1, r2) -> {
-            try { r2.area(); } catch (Exception _) { return -1; }
-            try { r1.area(); } catch (Exception _) { return 1; }
+            try { r2.area(); } catch (Exception e) { if (e.getMessage().equals("Stepping in the area of infinity errors encounter you")) return -1; }
+            try { r1.area(); } catch (Exception e) { if (e.getMessage().equals("Stepping in the area of infinity errors encounter you")) return 1; }
             try { return Double.compare(r1.area(), r2.area()); } catch (Exception _) {}
             return 0;
         });
