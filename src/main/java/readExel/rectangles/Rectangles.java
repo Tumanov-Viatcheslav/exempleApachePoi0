@@ -35,7 +35,7 @@ public class Rectangles {
             throw new Exception("Trying to calculate maximum area of empty collection");
         double max = Double.MIN_VALUE;
         for (Rectangle rectangle : rectangles) {
-            max = max < rectangle.area() ? rectangle.area() : max;
+            max = Math.max(max, rectangle.area());
         }
         return max;
     }
@@ -47,7 +47,7 @@ public class Rectangles {
             throw new Exception("Trying to calculate maximum area of empty array");
         double max = Double.MIN_VALUE;
         for (Rectangle rectangle : rectangles) {
-            max = max < rectangle.area() ? rectangle.area() : max;
+            max = Math.max(max, rectangle.area());
         }
         return max;
     }
